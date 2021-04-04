@@ -5,21 +5,30 @@
 // ---------------------------------------------------------------
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Bunit;
 using Microsoft.AspNetCore.Components;
+using Tynamix.ObjectFiller;
 
 namespace PrettyBlazor.Tests.Iterations
 {
     public partial class IterationTests : TestContext
     {
-        private IRenderedComponent<Iterations<object>> renderedIterationsComponent;
+        private IRenderedComponent<Iterations<int>> renderedIterationsComponent;
 
-        private static RenderFragment CreateRenderFragment(Type type) => builder =>
+        private static List<int> CreateRandomItems() =>
+            Enumerable.Range(start: 0, count: GetRadnomNumber()).ToList();
+
+        private static int GetRadnomNumber() => new IntRange(min: 2, max: 10).GetValue();
+
+        private static RenderFragment<int> CreateRenderFragment(Type type) => 
+        context => builder =>
         {
-            builder.OpenComponent(sequence: 0, componentType: type);
+            builder.OpenComponent(0, type);
             builder.CloseComponent();
         };
 
-        public class SomeMatchComponent : ComponentBase { }
+        public class SomeIterationComponent<T> : ComponentBase { }
     }
 }
