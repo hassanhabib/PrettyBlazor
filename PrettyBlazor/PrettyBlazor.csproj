@@ -2,10 +2,28 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <PackageProjectUrl>www.prettyblazor.com</PackageProjectUrl>
+    <PackageIcon>PrettyBlazor.png</PackageIcon>
+    <RepositoryUrl>https://github.com/hassanhabib/PrettyBlazor</RepositoryUrl>
+    <RepositoryType>github</RepositoryType>
+    <Description>PrettyBlazor is a library that adds the rest of control structures to Blazor markup. With PrettyBlazor you can now implement iterations and selections as control structures using market without having to have obtrusive C# code in your razor files.</Description>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Copyright>Copyright (c) Hassan Habib</Copyright>
+    <PackageLicenseFile>License.txt</PackageLicenseFile>
+    <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="License.txt" />
+    <None Include="License.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="Resources\PrettyBlazor.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +52,15 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="PrettyBlazor.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\PrettyBlazor.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
