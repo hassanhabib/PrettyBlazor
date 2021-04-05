@@ -134,6 +134,10 @@ C# mixed with html - which can become quite problematic from a readability, main
 PrettyBlazor is only a good start to a full unobtrusive C# routines in a Blazor application, the true issue here still stands with some of the C# code even if it's just a reference invading the space of the markup instead of gracefully handling the non-blazor or js availability with a graceful failure for the HTML body to load without having to add any additional logic.
 The dream state is to allow C# to find and attach events or property values to Blazor components from the back-end without having to have any references whatsoever on the front-end.
 
+here's a video introduction to this library:
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/-NW2rp1J1ps/0.jpg)](https://www.youtube.com/watch?v=-NW2rp1J1ps)
+
 
 If you have any suggestions, comments or questions, please feel free to contact me on:
 <br />
