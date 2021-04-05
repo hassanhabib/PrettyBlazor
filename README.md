@@ -74,9 +74,7 @@ Some folks decided to take the route of building the entire component in C# then
 
 ```html
 <Iterations Items="Students">
-    <Iteration>
-        <StudentComponent Value="@context" />
-    </Iteration>
+  <StudentComponent Value="@context" />
 </Iterations>
 ```
 In the code snippet above, you can see how simpler, easier and prettier it can be to express an iteration in Blazor without having to write any specific C# code in your markup.
@@ -99,16 +97,14 @@ And that's why PrettyBlazor was made, to litterally make developing Blazor appli
 Here's a more combined example of PrettyBlazor:
 ```html
 <Iterations Items="Numbers">
-    <Iteration>
-        <Condition Evaluation="@(context%2 == 0)">
-            <Match>
-                <p>It's true!</p>
-            </Match>
-            <NotMatch>
-                <p>It's false!</p>
-            </NotMatch>
-        </Condition>
-    </Iteration>
+  <Condition Evaluation="@(context%2 == 0)">
+    <Match>
+      <p>It's true!</p>
+    </Match>
+    <NotMatch>
+      <p>It's false!</p>
+    </NotMatch>
+  </Condition>
 </Iterations>
 ```
 
