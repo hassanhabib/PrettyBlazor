@@ -39,12 +39,12 @@ The issue with obtrusiveness in C# code with Markup in Blazor is that the text e
 With Pretty Blazor, the equation becomes much simpler, because the entire file will be written simply by one and only one language which is markup as follows:
 
 ```html
-<Condition Evaluation="Condition">
+<Condition Evaluation="condition">
     <Match>
-        <label>It's true!</label>
+        <SomeComponent />
     </Match>
     <NotMatch>
-        <label>It's false!</label>
+        <SomeOtherComponent />
     </NotMatch>
 </Condition>
 ```
