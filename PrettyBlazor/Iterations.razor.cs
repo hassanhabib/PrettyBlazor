@@ -15,6 +15,6 @@ namespace PrettyBlazor
         public List<T> Items { get; set; }
 
         [Parameter]
-        public RenderFragment<T> Iteration { get; set; }
+        public RenderFragment<T> ChildContent { get; set; }
     }
 }

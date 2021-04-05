@@ -12,6 +12,10 @@
     <Copyright>Copyright (c) Hassan Habib</Copyright>
     <PackageLicenseFile>License.txt</PackageLicenseFile>
     <NeutralLanguage>en</NeutralLanguage>
+    <Authors>Hassan Habib</Authors>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>

@@ -26,7 +26,7 @@ namespace PrettyBlazor.Tests.Iterations
 
             // then
             initialConditionComponent.Items.Should().BeNull();
-            initialConditionComponent.Iteration.Should().BeNull();
+            initialConditionComponent.ChildContent.Should().BeNull();
         }
 
         [Fact]
@@ -49,7 +49,7 @@ namespace PrettyBlazor.Tests.Iterations
                     value: randomItems),
 
                 ComponentParameter.CreateParameter(
-                    name: nameof(Iterations<int>.Iteration),
+                    name: nameof(Iterations<int>.ChildContent),
                     value: expectedIteration)
             };
 
