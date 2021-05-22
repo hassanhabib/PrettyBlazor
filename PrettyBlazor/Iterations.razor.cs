@@ -12,7 +12,7 @@ namespace PrettyBlazor
     public partial class Iterations<T> : ComponentBase
     {
         [Parameter]
-        public List<T> Items { get; set; }
+        public IEnumerable<T> Items { get; set; }
 
         [Parameter]
         public RenderFragment<T> ChildContent { get; set; }

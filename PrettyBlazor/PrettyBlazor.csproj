@@ -13,9 +13,10 @@
     <PackageLicenseFile>License.txt</PackageLicenseFile>
     <NeutralLanguage>en</NeutralLanguage>
     <Authors>Hassan Habib</Authors>
-    <AssemblyVersion>1.1.0.0</AssemblyVersion>
-    <FileVersion>1.1.0.0</FileVersion>
-    <Version>1.1.0</Version>
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
+    <FileVersion>1.2.0.0</FileVersion>
+    <Version>1.2.0</Version>
+    <PackageReleaseNotes>Allow IEnumerable instead of List for Iterations</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
