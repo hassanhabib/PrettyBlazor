@@ -3,6 +3,9 @@
 </p>
 
 # PrettyBlazor
+[![Nuget](https://img.shields.io/nuget/v/PrettyBlazor)](https://www.nuget.org/packages/PrettyBlazor/)
+[![PrettyBlazor](https://img.shields.io/nuget/dt/PrettyBlazor.svg?style=flat-square)](https://www.nuget.org/packages/PrettyBlazor/)
+
 PrettyBlazor is a Blazor .NET library that enables Blazor developers to use control structures in their Blazor applications through markup without having to use obtrusive C# code to iterate or select particular fragments.
 
 ## Introduction
@@ -125,8 +128,19 @@ The equivelant of writing the same statement in Blazor today would be:
 ```
 C# mixed with html - which can become quite problematic from a readability, maintenance and performance perspectives when used in a large scale application - no matter how simpler you try to make the system components to be.
 
+## Installation
 
-### Challenges and Dreams
+Command Line (execeute this in the directory your project file is located)
+```
+dotnet add package PrettyBlazor
+```
+
+In your Component (or _Imports.cs)
+```C#
+@using PrettyBlazor
+```
+
+## Challenges and Dreams
 PrettyBlazor is only a good start to a full unobtrusive C# routines in a Blazor application, the true issue here still stands with some of the C# code even if it's just a reference invading the space of the markup instead of gracefully handling the non-blazor or js availability with a graceful failure for the HTML body to load without having to add any additional logic.
 The dream state is to allow C# to find and attach events or property values to Blazor components from the back-end without having to have any references whatsoever on the front-end.
 
