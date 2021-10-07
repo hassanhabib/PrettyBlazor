@@ -2,6 +2,8 @@
   <img width="25%" height="25%" src="https://raw.githubusercontent.com/hassanhabib/PrettyBlazor/master/PrettyBlazor/PrettyBlazor.png">
 </p>
 
+[![.NET](https://github.com/hassanhabib/PrettyBlazor/actions/workflows/dotnet.yml/badge.svg)](https://github.com/hassanhabib/PrettyBlazor/actions/workflows/dotnet.yml)
+
 # PrettyBlazor
 PrettyBlazor is a Blazor .NET library that enables Blazor developers to use control structures in their Blazor applications through markup without having to use obtrusive C# code to iterate or select particular fragments.
 
