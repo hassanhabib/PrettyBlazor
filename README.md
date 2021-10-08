@@ -3,7 +3,7 @@
 </p>
 
 [![.NET](https://github.com/hassanhabib/PrettyBlazor/actions/workflows/dotnet.yml/badge.svg)](https://github.com/hassanhabib/PrettyBlazor/actions/workflows/dotnet.yml)
-![Nuget](https://img.shields.io/nuget/v/PrettyBlazor?style=for-the-badge)
+[![Nuget](https://img.shields.io/nuget/v/PrettyBlazor)](https://www.nuget.org/packages/PrettyBlazor/)
 
 
 # PrettyBlazor
