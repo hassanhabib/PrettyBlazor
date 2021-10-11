@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31112.23
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31717.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrettyBlazor", "PrettyBlazor\PrettyBlazor.csproj", "{2141CB12-5756-489F-AFEC-4A551BDB7591}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrettyBlazor.Tests", "PrettyBlazor.Tests\PrettyBlazor.Tests.csproj", "{152D1836-CF4C-46EA-BAB8-11F5E79FB376}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyBlazor.Infrastructure.Build", "PrettyBlazor.Infrastructure.Build\PrettyBlazor.Infrastructure.Build.csproj", "{4ECE53AF-552B-4317-95C3-6CBF4E36BF38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{152D1836-CF4C-46EA-BAB8-11F5E79FB376}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{152D1836-CF4C-46EA-BAB8-11F5E79FB376}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{152D1836-CF4C-46EA-BAB8-11F5E79FB376}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4ECE53AF-552B-4317-95C3-6CBF4E36BF38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4ECE53AF-552B-4317-95C3-6CBF4E36BF38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4ECE53AF-552B-4317-95C3-6CBF4E36BF38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4ECE53AF-552B-4317-95C3-6CBF4E36BF38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
