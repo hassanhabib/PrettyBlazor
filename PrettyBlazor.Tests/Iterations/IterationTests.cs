@@ -22,7 +22,7 @@ namespace PrettyBlazor.Tests.Iterations
 
         private static int GetRadnomNumber() => new IntRange(min: 2, max: 10).GetValue();
 
-        private static RenderFragment<int> CreateRenderFragment(Type type) => 
+        private static RenderFragment<int> CreateRenderFragment(Type type) =>
         context => builder =>
         {
             builder.OpenComponent(0, type);
