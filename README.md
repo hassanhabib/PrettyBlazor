@@ -4,6 +4,7 @@
 
 [![.NET](https://github.com/hassanhabib/PrettyBlazor/actions/workflows/dotnet.yml/badge.svg)](https://github.com/hassanhabib/PrettyBlazor/actions/workflows/dotnet.yml)
 [![Nuget](https://img.shields.io/nuget/v/PrettyBlazor)](https://www.nuget.org/packages/PrettyBlazor/)
+[![The Standard - COMPLIANT](https://img.shields.io/badge/The_Standard-COMPLIANT-2ea44f)](https://github.com/hassanhabib/The-Standard)
 
 
 # PrettyBlazor
