@@ -11,7 +11,6 @@ using Bunit;
 using Bunit.Rendering;
 using FluentAssertions;
 using Microsoft.AspNetCore.Components;
-using Moq;
 using Xunit;
 
 namespace PrettyBlazor.Tests.Iterations
@@ -39,7 +38,7 @@ namespace PrettyBlazor.Tests.Iterations
             Type expectedIterationComponentType =
                 typeof(SomeIterationComponent<int>);
 
-            RenderFragment<int> expectedIteration = 
+            RenderFragment<int> expectedIteration =
                 CreateRenderFragment(expectedIterationComponentType);
 
             var componentParameters = new ComponentParameter[]
@@ -61,7 +60,7 @@ namespace PrettyBlazor.Tests.Iterations
             this.renderedIterationsComponent.Instance.Items
                 .Should().BeEquivalentTo(randomItems);
 
-            IReadOnlyList<IRenderedComponent<SomeIterationComponent<int>>> actualIterations = 
+            IReadOnlyList<IRenderedComponent<SomeIterationComponent<int>>> actualIterations =
                 this.renderedIterationsComponent.FindComponents<SomeIterationComponent<int>>();
 
             actualIterations.Count.Should().Be(randomItems.Count);
