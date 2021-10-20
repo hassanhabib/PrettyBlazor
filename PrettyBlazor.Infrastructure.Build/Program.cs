@@ -28,6 +28,7 @@ namespace PrettyBlazor.Infrastructure.Build
                     {
                         Branches = new string[] { "master" }
                     },
+
                     PullRequest = new PullRequestEvent
                     {
                         Branches = new string[] { "master" }
@@ -50,9 +51,10 @@ namespace PrettyBlazor.Infrastructure.Build
                             new SetupDotNetTaskV1
                             {
                                 Name = "Setup .Net",
+
                                 TargetDotNetVersion = new TargetDotNetVersion
                                 {
-                                    DotNetVersion = "5.0.x",
+                                    DotNetVersion = "6.0.100-rc.2.21505.57",
                                     IncludePrerelease = true
                                 }
                             },
