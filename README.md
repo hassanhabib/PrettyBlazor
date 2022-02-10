@@ -137,7 +137,7 @@ dotnet add package PrettyBlazor
 ```
 
 In your Component (or _Imports.cs)
-```C#
+```cshtml
 @using PrettyBlazor
 ```
 
