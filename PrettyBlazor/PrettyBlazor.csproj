@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <PackageProjectUrl>www.prettyblazor.com</PackageProjectUrl>
     <PackageIcon>PrettyBlazor.png</PackageIcon>
     <RepositoryUrl>https://github.com/hassanhabib/PrettyBlazor</RepositoryUrl>
@@ -19,6 +19,7 @@
     <PackageReleaseNotes>Allow IEnumerable instead of List for Iterations</PackageReleaseNotes>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' " />
   <ItemGroup>
     <None Remove="License.txt" />
     <None Include="License.txt">
@@ -29,19 +30,16 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+    <None Remove="Microsoft.AspNetCore.Components" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="License.txt" />
   </ItemGroup>
 
-  
-  <ItemGroup>
-    <SupportedPlatform Include="browser" />
-  </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.1" />
+    <SupportedPlatform Include="browser" />
   </ItemGroup>
 
   <ItemGroup>
@@ -68,4 +66,7 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.0-preview.1.22109.13" />
+  </ItemGroup>
 </Project>
