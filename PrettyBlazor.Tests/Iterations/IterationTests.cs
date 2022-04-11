@@ -18,9 +18,9 @@ namespace PrettyBlazor.Tests.Iterations
         private IRenderedComponent<Iterations<int>> renderedIterationsComponent;
 
         private static List<int> CreateRandomItems() =>
-            Enumerable.Range(start: 0, count: GetRadnomNumber()).ToList();
+            Enumerable.Range(start: 0, count: GetRandomNumber()).ToList();
 
-        private static int GetRadnomNumber() => new IntRange(min: 2, max: 10).GetValue();
+        private static int GetRandomNumber() => new IntRange(min: 2, max: 10).GetValue();
 
         private static RenderFragment<int> CreateRenderFragment(Type type) =>
         context => builder =>
