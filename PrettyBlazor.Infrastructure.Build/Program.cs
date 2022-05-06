@@ -54,7 +54,7 @@ namespace PrettyBlazor.Infrastructure.Build
 
                                 TargetDotNetVersion = new TargetDotNetVersion
                                 {
-                                    DotNetVersion = "6.0.101",
+                                    DotNetVersion = "7.0.100-preview.1.22110.4",
                                     IncludePrerelease = true
                                 }
                             },
@@ -78,7 +78,7 @@ namespace PrettyBlazor.Infrastructure.Build
                 }
             };
 
-            adotNetClient.SerializeAndWriteToFile(githubPipeline, "../../../../.github/workflows/dotnet.yml");
+            adotNetClient.SerializeAndWriteToFile(githubPipeline, "../.github/workflows/dotnet.yml");
         }
     }
 }
