@@ -1,6 +1,13 @@
-﻿@if (Evaluation is true)
+﻿@if (Evaluation)
 {
-    @Match
+    @if (Match is null)
+    {
+        @ChildContent
+    }
+    else
+    {
+        @Match
+    }
 }
 else
 {
