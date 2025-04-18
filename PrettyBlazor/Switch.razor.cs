@@ -8,10 +8,10 @@ using Microsoft.AspNetCore.Components;
 
 namespace PrettyBlazor
 {
-    public partial class Switch<T> : ComponentBase
+    public partial class Switch<TValue> : ComponentBase
     {
         [Parameter]
-        public T Value { get; set; }
+        public TValue Value { get; set; }
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }

@@ -9,18 +9,18 @@ using Microsoft.AspNetCore.Components;
 
 namespace PrettyBlazor
 {
-    public partial class SwitchDefault<T> : ComponentBase
+    public partial class SwitchDefault<TValue> : ComponentBase
     {
         [CascadingParameter(Name = "SwitchValue")]
-        public T SwitchValue { get; set; }
+        public TValue SwitchValue { get; set; }
 
         [CascadingParameter]
-        public List<T> CaseValues { get; set; }
+        public List<TValue> CaseValues { get; set; }
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
         private bool ShouldRenderDefaultCase() =>
-            CaseValues == null || !CaseValues.Contains(SwitchValue);
+            CaseValues is null || CaseValues.Contains(SwitchValue) is false;
     }
 }

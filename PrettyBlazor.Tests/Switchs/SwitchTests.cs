@@ -14,14 +14,20 @@ namespace PrettyBlazor.Tests.Switchs
     public partial class SwitchTests : TestContext
     {
         private static int GetRandomNumber() =>
-            new IntRange(min: 2, max: 10).GetValue();
+            new IntRange(min: 2, max: 9).GetValue();
 
         public class SomeSwitchViewComponent<T> : ComponentBase
         {
             protected override void BuildRenderTree(RenderTreeBuilder builder)
             {
-                builder.OpenElement(0, "p");
-                builder.AddContent(1, $"Switch View: {typeof(T).Name}");
+                builder.OpenElement(
+                    sequence: 0,
+                    elementName: "p");
+
+                builder.AddContent(
+                    sequence: 1,
+                    textContent: $"Switch View: {typeof(T).Name}");
+
                 builder.CloseElement();
             }
         }
