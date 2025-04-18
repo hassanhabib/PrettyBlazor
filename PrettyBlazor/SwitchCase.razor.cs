@@ -27,15 +27,15 @@ namespace PrettyBlazor
         {
             if (ShouldRenderCase())
             {
-                Switch?.NotifyMatched();
+                this.Switch?.NotifyMatched();
             }
         }
 
         private bool ShouldRenderCase()
         {
             return EqualityComparer<TValue>.Default.Equals(
-                x: Value,
-                y: When);
+                x: this.Value,
+                y: this.When);
         }
     }
 }

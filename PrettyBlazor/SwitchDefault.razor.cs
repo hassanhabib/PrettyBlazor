@@ -17,6 +17,6 @@ namespace PrettyBlazor
         public RenderFragment ChildContent { get; set; }
 
         private bool ShouldRenderDefaultCase() =>
-            Switch is not null && Switch.HasMatchedCase is false;
+            this.Switch is not null && this.Switch.HasMatchedCase is false;
     }
 }
