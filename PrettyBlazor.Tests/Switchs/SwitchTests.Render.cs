@@ -179,5 +179,63 @@ namespace PrettyBlazor.Tests.Switchs
             rendered.Markup.Should().Contain(expectedDefaultContent);
             rendered.Markup.Should().NotContain(unexpectedCaseContent);
         }
+
+        [Fact]
+        public void ShouldRenderNothingWhenNoMatchAndNoDefault()
+        {
+            // given
+            int randomSwitchValue = GetRandomNumber();
+            int randomCaseValue = GetRandomNumber();
+
+            while (randomSwitchValue == randomCaseValue)
+            {
+                randomCaseValue = GetRandomNumber();
+            }
+
+            int inputSwitchValue = randomSwitchValue;
+            int inputCaseValue = randomCaseValue;
+            string inputCaseContent = "This should not be rendered";
+            string unexpectedCaseContent = inputCaseContent;
+
+            RenderFragment nonMatchingCaseFragment = builder =>
+            {
+                builder.OpenElement(0, "p");
+                builder.AddContent(1, inputCaseContent);
+                builder.CloseElement();
+            };
+
+            var parameters = new ComponentParameter[]
+            {
+                ComponentParameter.CreateParameter(
+                    name: nameof(Switch<int>.Value),
+                    value: inputSwitchValue),
+
+                ComponentParameter.CreateParameter(
+                    name: nameof(Switch<int>.ChildContent),
+                    value: new RenderFragment(builder =>
+                    {
+                        builder.OpenComponent<SwitchCase<int>>(0);
+
+                        builder.AddAttribute(
+                            sequence: 1,
+                            name: nameof(SwitchCase<int>.When),
+                            value: inputCaseValue);
+
+                        builder.AddAttribute(
+                            sequence: 2,
+                            name: nameof(SwitchCase<int>.ChildContent),
+                            value: nonMatchingCaseFragment);
+
+                        builder.CloseComponent();
+                    }))
+            };
+
+            // when
+            var rendered = RenderComponent<Switch<int>>(parameters);
+
+            // then
+            rendered.Markup.Trim().Should().BeEmpty();
+            rendered.Markup.Should().NotContain(unexpectedCaseContent);
+        }
     }
 }
