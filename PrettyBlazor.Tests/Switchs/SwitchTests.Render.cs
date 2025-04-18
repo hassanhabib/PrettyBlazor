@@ -185,7 +185,6 @@ namespace PrettyBlazor.Tests.Switchs
                             value: nonMatchingCaseFragment);
 
                         builder.CloseComponent();
-
                         builder.OpenComponent<SwitchDefault<int>>(sequence: 3);
 
                         builder.AddAttribute(
@@ -244,6 +243,7 @@ namespace PrettyBlazor.Tests.Switchs
 
                 ComponentParameter.CreateParameter(
                     name: nameof(Switch<int>.ChildContent),
+
                     value: new RenderFragment(builder =>
                     {
                         builder.OpenComponent<SwitchCase<int>>(sequence: 0);
