@@ -77,9 +77,9 @@ namespace PrettyBlazor.Tests.Switchs
 
                 ComponentParameter.CreateParameter(
                     name: nameof(Switch<int>.ChildContent),
-                    value:new RenderFragment(builder =>
+                    value: new RenderFragment(builder =>
                 {
-                    builder.OpenComponent<SwitchCase<int>>(0);
+                    builder.OpenComponent<SwitchCase<int>>(sequence: 0);
 
                     builder.AddAttribute(
                         sequence: 1,
@@ -109,11 +109,12 @@ namespace PrettyBlazor.Tests.Switchs
             };
 
             // when
-            var rendered = RenderComponent<Switch<int>>(parameters);
+            IRenderedComponent<Switch<int>> renderedComponent =
+                RenderComponent<Switch<int>>(parameters);
 
             // then
-            rendered.Markup.Should().Contain(expectedMatchContent);
-            rendered.Markup.Should().NotContain(unexpectedNotMatchContent);
+            renderedComponent.Markup.Should().Contain(expectedMatchContent);
+            renderedComponent.Markup.Should().NotContain(unexpectedNotMatchContent);
         }
 
         [Fact]
@@ -197,11 +198,12 @@ namespace PrettyBlazor.Tests.Switchs
             };
 
             // when
-            var rendered = RenderComponent<Switch<int>>(parameters);
+            IRenderedComponent<Switch<int>> renderedComponent =
+                RenderComponent<Switch<int>>(parameters);
 
             // then
-            rendered.Markup.Should().Contain(expectedDefaultContent);
-            rendered.Markup.Should().NotContain(unexpectedCaseContent);
+            renderedComponent.Markup.Should().Contain(expectedDefaultContent);
+            renderedComponent.Markup.Should().NotContain(unexpectedCaseContent);
         }
 
         [Fact]
@@ -261,11 +263,12 @@ namespace PrettyBlazor.Tests.Switchs
             };
 
             // when
-            var rendered = RenderComponent<Switch<int>>(parameters);
+            IRenderedComponent<Switch<int>> renderedComponent =
+                RenderComponent<Switch<int>>(parameters);
 
             // then
-            rendered.Markup.Trim().Should().BeEmpty();
-            rendered.Markup.Should().NotContain(unexpectedCaseContent);
+            renderedComponent.Markup.Trim().Should().BeEmpty();
+            renderedComponent.Markup.Should().NotContain(unexpectedCaseContent);
         }
     }
 }
