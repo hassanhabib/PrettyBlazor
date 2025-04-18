@@ -15,5 +15,10 @@ namespace PrettyBlazor
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }
+
+        internal bool HasMatchedCase { get; private set; }
+
+        internal void NotifyMatched() =>
+            this.HasMatchedCase = true;
     }
 }

@@ -4,23 +4,19 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using System.Collections.Generic;
 using Microsoft.AspNetCore.Components;
 
 namespace PrettyBlazor
 {
     public partial class SwitchDefault<TValue> : ComponentBase
     {
-        [CascadingParameter(Name = "SwitchValue")]
-        public TValue SwitchValue { get; set; }
-
         [CascadingParameter]
-        public List<TValue> CaseValues { get; set; }
+        public Switch<TValue> Switch { get; set; }
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
         private bool ShouldRenderDefaultCase() =>
-            CaseValues is null || CaseValues.Contains(SwitchValue) is false;
+            Switch is not null && Switch.HasMatchedCase is false;
     }
 }

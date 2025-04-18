@@ -268,7 +268,110 @@ namespace PrettyBlazor.Tests.Switchs
 
             // then
             renderedComponent.Markup.Trim().Should().BeEmpty();
-            renderedComponent.Markup.Should().NotContain(unexpectedCaseContent);
+
+            renderedComponent.Markup.Should()
+                .NotContain(unexpectedCaseContent);
+        }
+
+        [Fact]
+        public void ShouldRenderOnlyMatchingSwitchCaseAndNotDefault()
+        {
+            // given
+            int matchingValue = 2;
+            string matchContent = "Match: Two";
+            string defaultContent = "Default: Unknown";
+
+            RenderFragment matchingFragment = builder =>
+            {
+                builder.OpenElement(
+                    sequence: 0,
+                    elementName: "p");
+
+                builder.AddContent(
+                    sequence: 1,
+                    textContent: matchContent);
+
+                builder.CloseElement();
+            };
+
+            RenderFragment defaultFragment = builder =>
+            {
+                builder.OpenElement(
+                    sequence: 0,
+                    elementName: "p");
+
+                builder.AddContent(
+                    sequence: 1,
+                    textContent: defaultContent);
+
+                builder.CloseElement();
+            };
+
+            var parameters = new ComponentParameter[]
+            {
+                ComponentParameter.CreateParameter(
+                    name: nameof(Switch<int>.Value),
+                    value: matchingValue),
+
+                ComponentParameter.CreateParameter(
+                    name: nameof(Switch<int>.ChildContent),
+                    value: new RenderFragment(builder =>
+                    {
+                        builder.OpenComponent<SwitchCase<int>>(sequence: 0);
+
+                        builder.AddAttribute(
+                            sequence: 1,
+                            name: nameof(SwitchCase<int>.When),
+                            value: 1);
+
+                        builder.AddAttribute(
+                            sequence: 2,
+                            name: nameof(SwitchCase<int>.ChildContent),
+                            value: (RenderFragment)(b =>
+                        {
+                            b.OpenElement(
+                                sequence: 0,
+                                elementName: "p");
+
+                            b.AddContent(
+                                sequence: 1,
+                                textContent: "This should not be shown");
+
+                            b.CloseElement();
+                        }));
+
+                        builder.CloseComponent();
+                        builder.OpenComponent<SwitchCase<int>>(sequence: 3);
+
+                        builder.AddAttribute(
+                            sequence: 4,
+                            name: nameof(SwitchCase<int>.When),
+                            value: matchingValue);
+
+                        builder.AddAttribute(
+                            sequence: 5,
+                            name: nameof(SwitchCase<int>.ChildContent),
+                            value: matchingFragment);
+
+                        builder.CloseComponent();
+                        builder.OpenComponent<SwitchDefault<int>>(sequence: 6);
+
+                        builder.AddAttribute(
+                            sequence: 7,
+                            name: nameof(SwitchDefault<int>.ChildContent),
+                            value: defaultFragment);
+
+                        builder.CloseComponent();
+                    }))
+            };
+
+            // when
+            var rendered = RenderComponent<Switch<int>>(parameters);
+
+            // then
+            rendered.Markup.Should().Contain(matchContent);
+            rendered.Markup.Should().NotContain(defaultContent);
+            rendered.Markup.Should().NotContain("This should not be shown");
         }
     }
 }

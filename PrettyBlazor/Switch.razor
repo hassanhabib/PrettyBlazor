@@ -1,7 +1,7 @@
 @typeparam TValue
 
-<CascadingValue Value="Value"
-                Name="SwitchValue">
-
-    @ChildContent
+<CascadingValue Value="Value">
+    <CascadingValue Value="this">
+        @ChildContent
+    </CascadingValue>
 </CascadingValue>
