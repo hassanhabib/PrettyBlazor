@@ -10,8 +10,6 @@ namespace PrettyBlazor
 {
     public partial class Switch<T> : ComponentBase
     {
-        internal static T CurrentValue;
-
         [Parameter]
         public T Value { get; set; }
 
