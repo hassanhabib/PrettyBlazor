@@ -11,8 +11,11 @@ namespace PrettyBlazor
 {
     public partial class SwitchCase<TValue> : ComponentBase
     {
-        [CascadingParameter(Name = "SwitchValue")]
-        public TValue SwitchValue { get; set; }
+        [CascadingParameter]
+        public TValue Value { get; set; }
+
+        [CascadingParameter]
+        public Switch<TValue> Switch { get; set; }
 
         [Parameter]
         public TValue When { get; set; }
@@ -20,10 +23,18 @@ namespace PrettyBlazor
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
+        protected override void OnParametersSet()
+        {
+            if (ShouldRenderCase())
+            {
+                Switch?.NotifyMatched();
+            }
+        }
+
         private bool ShouldRenderCase()
         {
             return EqualityComparer<TValue>.Default.Equals(
-                x: SwitchValue,
+                x: Value,
                 y: When);
         }
     }
