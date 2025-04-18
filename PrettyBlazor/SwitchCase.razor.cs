@@ -14,8 +14,10 @@ namespace PrettyBlazor
         [CascadingParameter(Name = "SwitchValue")]
         public T SwitchValue { get; set; }
 
-        [Parameter] public T When { get; set; }
-        [Parameter] public RenderFragment ChildContent { get; set; }
+        [Parameter]
+        public T When { get; set; }
+        [Parameter]
+        public RenderFragment ChildContent { get; set; }
 
         private bool ShouldRenderCase() =>
             EqualityComparer<T>.Default.Equals(SwitchValue, When);
