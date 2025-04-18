@@ -38,17 +38,19 @@ namespace PrettyBlazor.Tests.Switchs
 
             int inputMatchValue = randomMatchValue;
             int inputNotMatchValue = randomNotMatchValue;
+            string inputMatchContent = "This should be rendered";
             string inputNotMatchContent = "This should not be rendered";
-            string expectedMatchContent = "Test View: int";
+            string expectedMatchContent = inputMatchContent;
             string unexpectedNotMatchContent = inputNotMatchContent;
 
-            RenderFragment<int> matchingFragment = val => builder =>
+            RenderFragment matchingFragment = builder =>
             {
-                builder.OpenComponent(0, typeof(SomeSwitchViewComponent<int>));
-                builder.CloseComponent();
+                builder.OpenElement(0, "p");
+                builder.AddContent(1, inputMatchContent);
+                builder.CloseElement();
             };
 
-            RenderFragment<int> nonMatchingFragment = val => builder =>
+            RenderFragment nonMatchingFragment = builder =>
             {
                 builder.OpenElement(0, "p");
                 builder.AddContent(1, inputNotMatchContent);
@@ -62,7 +64,7 @@ namespace PrettyBlazor.Tests.Switchs
                     value: inputMatchValue),
 
                 ComponentParameter.CreateParameter(
-                    name: nameof(Switch<string>.ChildContent),
+                    name: nameof(Switch<int>.ChildContent),
                     value:new RenderFragment(builder =>
                 {
                     builder.OpenComponent<SwitchCase<int>>(0);

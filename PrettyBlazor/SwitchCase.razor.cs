@@ -16,6 +16,7 @@ namespace PrettyBlazor
 
         [Parameter]
         public T When { get; set; }
+
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
