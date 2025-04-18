@@ -366,12 +366,13 @@ namespace PrettyBlazor.Tests.Switchs
             };
 
             // when
-            var rendered = RenderComponent<Switch<int>>(parameters);
+            IRenderedComponent<Switch<int>> renderedComponent =
+                RenderComponent<Switch<int>>(parameters);
 
             // then
-            rendered.Markup.Should().Contain(matchContent);
-            rendered.Markup.Should().NotContain(defaultContent);
-            rendered.Markup.Should().NotContain("This should not be shown");
+            renderedComponent.Markup.Should().Contain(matchContent);
+            renderedComponent.Markup.Should().NotContain(defaultContent);
+            renderedComponent.Markup.Should().NotContain("This should not be shown");
         }
     }
 }
