@@ -45,15 +45,27 @@ namespace PrettyBlazor.Tests.Switchs
 
             RenderFragment matchingFragment = builder =>
             {
-                builder.OpenElement(0, "p");
-                builder.AddContent(1, inputMatchContent);
+                builder.OpenElement(
+                    sequence: 0,
+                    elementName: "p");
+
+                builder.AddContent(
+                    sequence: 1,
+                    textContent: inputMatchContent);
+
                 builder.CloseElement();
             };
 
             RenderFragment nonMatchingFragment = builder =>
             {
-                builder.OpenElement(0, "p");
-                builder.AddContent(1, inputNotMatchContent);
+                builder.OpenElement(
+                    sequence: 0,
+                    elementName: "p");
+
+                builder.AddContent(
+                    sequence: 1,
+                    textContent: inputNotMatchContent);
+
                 builder.CloseElement();
             };
 
@@ -125,15 +137,27 @@ namespace PrettyBlazor.Tests.Switchs
 
             RenderFragment defaultFragment = builder =>
             {
-                builder.OpenElement(0, "p");
-                builder.AddContent(1, inputDefaultContent);
+                builder.OpenElement(
+                    sequence: 0,
+                    elementName: "p");
+
+                builder.AddContent(
+                    sequence: 1,
+                    textContent: inputDefaultContent);
+
                 builder.CloseElement();
             };
 
             RenderFragment nonMatchingCaseFragment = builder =>
             {
-                builder.OpenElement(0, "p");
-                builder.AddContent(1, inputCaseContent);
+                builder.OpenElement(
+                    sequence: 0,
+                    elementName: "p");
+
+                builder.AddContent(
+                    sequence: 1,
+                    textContent: inputCaseContent);
+
                 builder.CloseElement();
             };
 
@@ -147,7 +171,7 @@ namespace PrettyBlazor.Tests.Switchs
                     name: nameof(Switch<int>.ChildContent),
                     value: new RenderFragment(builder =>
                     {
-                        builder.OpenComponent<SwitchCase<int>>(0);
+                        builder.OpenComponent<SwitchCase<int>>(sequence: 0);
 
                         builder.AddAttribute(
                             sequence: 1,
@@ -161,7 +185,7 @@ namespace PrettyBlazor.Tests.Switchs
 
                         builder.CloseComponent();
 
-                        builder.OpenComponent<SwitchDefault<int>>(3);
+                        builder.OpenComponent<SwitchDefault<int>>(sequence: 3);
 
                         builder.AddAttribute(
                             sequence: 4,
@@ -199,8 +223,14 @@ namespace PrettyBlazor.Tests.Switchs
 
             RenderFragment nonMatchingCaseFragment = builder =>
             {
-                builder.OpenElement(0, "p");
-                builder.AddContent(1, inputCaseContent);
+                builder.OpenElement(
+                    sequence: 0,
+                    elementName: "p");
+
+                builder.AddContent(
+                    sequence: 1,
+                    textContent: inputCaseContent);
+
                 builder.CloseElement();
             };
 
@@ -214,7 +244,7 @@ namespace PrettyBlazor.Tests.Switchs
                     name: nameof(Switch<int>.ChildContent),
                     value: new RenderFragment(builder =>
                     {
-                        builder.OpenComponent<SwitchCase<int>>(0);
+                        builder.OpenComponent<SwitchCase<int>>(sequence: 0);
 
                         builder.AddAttribute(
                             sequence: 1,
