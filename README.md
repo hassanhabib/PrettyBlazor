@@ -1,4 +1,4 @@
-<p align="center">
+﻿<p align="center">
   <img width="25%" height="25%" src="https://raw.githubusercontent.com/hassanhabib/PrettyBlazor/master/PrettyBlazor/PrettyBlazor.png">
 </p>
 
@@ -129,6 +129,49 @@ The equivelant of writing the same statement in Blazor today would be:
 }
 ```
 C# mixed with html - which can become quite problematic from a readability, maintenance and performance perspectives when used in a large scale application - no matter how simpler you try to make the system components to be.
+
+## 🌟 New in PrettyBlazor: `<Switch>`, `<SwitchCase>`, and `<SwitchDefault>`
+
+PrettyBlazor now includes declarative components to replace `@switch` statements in markup. These components allow rendering different UI fragments based on a value—without C# logic interleaved in your `.razor` files.
+
+### Example
+```razor
+<Switch T="AuthorizedState" Value="ComponentState">
+    <SwitchCase T="AuthorizedState" When="AuthorizedState.Loading">
+        <p>Loading...</p>
+    </SwitchCase>
+
+    <SwitchCase T="AuthorizedState" When="AuthorizedState.Authorized">
+        <p>Welcome back!</p>
+    </SwitchCase>
+
+    <SwitchCase T="AuthorizedState" When="AuthorizedState.Error">
+        <p>Something went wrong.</p>
+    </SwitchCase>
+
+    <SwitchDefault>
+        <p>Unknown state.</p>
+    </SwitchDefault>
+</Switch>
+```
+This replaces traditional Blazor syntax like:
+```razor
+@switch (ComponentState)
+{
+    case AuthorizedState.Loading:
+        <p>Loading...</p>
+        break;
+    case AuthorizedState.Authorized:
+        <p>Welcome back!</p>
+        break;
+    case AuthorizedState.Error:
+        <p>Something went wrong.</p>
+        break;
+    default:
+        <p>Unknown state.</p>
+        break;
+}
+```
 
 ## Installation
 
