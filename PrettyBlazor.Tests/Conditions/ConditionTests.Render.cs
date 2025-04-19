@@ -1,6 +1,6 @@
 // ---------------------------------------------------------------
 // Copyright (c) Hassan Habib All rights reserved.
-// Licensed under The Standard Software License (TSSL v1.0).
+// Licensed under The Standard Software License (TSSL).
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
