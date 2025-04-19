@@ -26,12 +26,12 @@ namespace PrettyBlazor.Infrastructure.Build
                 {
                     Push = new PushEvent
                     {
-                        Branches = new string[] { "master" }
+                        Branches = new string[] { "main" }
                     },
 
                     PullRequest = new PullRequestEvent
                     {
-                        Branches = new string[] { "master" }
+                        Branches = new string[] { "main" }
                     }
                 },
 
