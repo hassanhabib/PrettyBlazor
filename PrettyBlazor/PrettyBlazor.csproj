@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <PackageProjectUrl>www.prettyblazor.com</PackageProjectUrl>
     <PackageIcon>PrettyBlazor.png</PackageIcon>
     <RepositoryUrl>https://github.com/hassanhabib/PrettyBlazor</RepositoryUrl>
