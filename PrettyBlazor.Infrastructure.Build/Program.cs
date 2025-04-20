@@ -54,7 +54,7 @@ namespace PrettyBlazor.Infrastructure.Build
 
                                 TargetDotNetVersion = new TargetDotNetVersion
                                 {
-                                    DotNetVersion = "6.0.101",
+                                    DotNetVersion = "9.0.4",
                                     IncludePrerelease = true
                                 }
                             },
