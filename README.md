@@ -6,6 +6,7 @@
 [![Nuget](https://img.shields.io/nuget/v/PrettyBlazor)](https://www.nuget.org/packages/PrettyBlazor/)
 [![The Standard - COMPLIANT](https://img.shields.io/badge/The_Standard-COMPLIANT-2ea44f)](https://github.com/hassanhabib/The-Standard)
 ![The Standard Community](https://img.shields.io/discord/934130100008538142?color=%237289da&label=The%20Standard%20Community&logo=Discord)
+![The Standard Licensed](https://img.shields.io/badge/The%20Standard-License-green)
 
 # PrettyBlazor
 PrettyBlazor is a Blazor .NET library that enables Blazor developers to use control structures in their Blazor applications through markup without having to use obtrusive C# code to iterate or select particular fragments.
