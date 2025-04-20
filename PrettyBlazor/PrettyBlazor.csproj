@@ -35,7 +35,6 @@
     <Content Include="License.txt" />
   </ItemGroup>
 
-  
   <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>

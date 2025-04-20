@@ -69,6 +69,38 @@ namespace PrettyBlazor.Tests.Conditions
         }
 
         [Fact]
+        public void ShouldRenderChildContentIfEvaluationIsTrueAndNoMatchComponentWasGiven()
+        {
+            // given
+            var expectedMatchFragment = CreateRenderFragment(typeof(SomeMatchComponent));
+
+            var componentParameters = new ComponentParameter[]
+            {
+                ComponentParameter.CreateParameter(
+                    name: nameof(Condition.Evaluation),
+                    value: true),
+
+                ComponentParameter.CreateParameter(
+                    name: nameof(Condition.ChildContent),
+                    value: expectedMatchFragment),
+            };
+
+            // when
+            this.renderedConditionComponent =
+                RenderComponent<Condition>(componentParameters);
+
+            // then
+            this.renderedConditionComponent.Instance.Evaluation
+                .Should().BeTrue();
+
+            this.renderedConditionComponent.Instance.ChildContent
+                .Should().BeEquivalentTo(expectedMatchFragment);
+
+            this.renderedConditionComponent.FindComponent<SomeMatchComponent>().Instance
+                .Should().NotBeNull();
+        }
+
+        [Fact]
         public void ShouldRenderNoMatchComponentIfEvaluationIsFalse()
         {
             // given

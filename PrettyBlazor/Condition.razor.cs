@@ -18,5 +18,11 @@ namespace PrettyBlazor
 
         [Parameter]
         public RenderFragment NotMatch { get; set; }
+
+        /// <summary>
+        /// Only shown if <see cref="Evaluation"/> is <see cref="true"/> and <see cref="Match"/> is not set.
+        /// </summary>
+        [Parameter]
+        public RenderFragment ChildContent { get; set; }
     }
 }
