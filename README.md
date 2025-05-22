@@ -93,6 +93,37 @@ button {
 ```
 In the example above, every single element of type button will have the color red. This is just another form of expressing iterations.
 
+#### Loading Structures
+One of the most common practices in UI programming is to show or hide certain elements based on the readiness of a specific piece of data. The "loading component" is responsible for evaluating this data to determine whether it is available and ready to be displayed. Additionally, loading components also allow developers to pass in a list of items and display an empty fragment when the list is empty. 
+This is commonly seen in Blazor applications, where you'll often find code written in the following way:
+
+```html
+@if(isLoading) 
+{
+  @:Loading...
+} 
+else if (!isLoading && students.Length == 0) 
+{
+  @:No results!
+}
+else
+{
+  <StudentsComponent Value=students />
+}
+```
+One issue with the current implementation is that it requires the use of multiple technologies and programming/markup languages, making it complex and hard to read. A simpler alternative would be to implement the same concept using a fluent markup expression, such as the following:
+
+```html
+<Loading Evaluation="Students">
+  <Pending>Loading..</Pending>
+  <Ready>
+    <StudentsComponent Value=students />
+  </Ready>
+  <Empty>No results!</Empty>
+</Loading>
+```
+The code snippet shown above demonstrates how it is possible to express a loading indicator and an empty result view in Blazor in a simpler, more readable and elegant way, without the need for any additional C# code in the markup.
+
 ### Unobtrusive C#
 Over a decade ago, web engineers introduced the concept of unobtrusive JavaScript. which was mainly around the idea that a web application should have it's CSS, HTML and JavaScript code all separated in their own files without one of them having to be using in the other's files.
 This earlier concept has changed a lot since then, web applications have evolved dramatically and it seemed that this concept has become less of a priority in some populator frameworks.

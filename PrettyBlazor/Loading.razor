@@ -1,0 +1,24 @@
+﻿@if (Evaluation is null)
+{
+    @Pending
+}
+else
+{
+    var (isCollectionType, collectionCount) = Evaluation switch
+    {
+        List<object> list => (IsCollectionType: true, Count: list.Count),
+        object[] array => (IsCollectionType: true, Count: array.Length),
+        Dictionary<object, object> dictionary => (IsCollectionType: true, Count: dictionary.Count()),
+        IEnumerable<object> ienumerable => (IsCollectionType: true, Count: ienumerable.Count()),
+        _ => (IsCollectionType: false, Count: 0)
+    };
+
+    if (isCollectionType && collectionCount == 0)
+    {
+        @Empty
+    }
+    else
+    {
+        @Ready
+    }
+}
