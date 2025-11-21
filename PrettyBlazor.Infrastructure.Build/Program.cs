@@ -4,11 +4,9 @@
 // See License.txt in the project root for license information.
 // ---------------------------------------------------------------
 
-using System.Collections.Generic;
-using ADotNet.Clients;
+using System.IO;
+using ADotNet.Clients.Builders;
 using ADotNet.Models.Pipelines.GithubPipelines.DotNets;
-using ADotNet.Models.Pipelines.GithubPipelines.DotNets.Tasks;
-using ADotNet.Models.Pipelines.GithubPipelines.DotNets.Tasks.SetupDotNetTaskV1s;
 
 namespace PrettyBlazor.Infrastructure.Build
 {
@@ -16,69 +14,32 @@ namespace PrettyBlazor.Infrastructure.Build
     {
         static void Main(string[] args)
         {
-            var adotNetClient = new ADotNetClient();
+            string buildScriptPath = "../../../../.github/workflows/dotnet.yml";
+            string directoryPath = Path.GetDirectoryName(buildScriptPath);
 
-            var githubPipeline = new GithubPipeline
+            if (Directory.Exists(directoryPath) is false)
             {
-                Name = ".Net",
+                Directory.CreateDirectory(directoryPath);
+            }
 
-                OnEvents = new Events
-                {
-                    Push = new PushEvent
-                    {
-                        Branches = new string[] { "master" }
-                    },
+            GitHubPipelineBuilder.CreateNewPipeline()
+                .SetName("Build & Test PrettyBlazor")
+                    .OnPush("master")
+                        .OnPullRequest("master")
+                            .AddJob("build", job => job
+                                .WithName("Build")
+                                .RunsOn(BuildMachines.UbuntuLatest)
+                                .AddCheckoutStep("Check Out")
 
-                    PullRequest = new PullRequestEvent
-                    {
-                        Branches = new string[] { "master" }
-                    }
-                },
+                                .AddSetupDotNetStep(
+                                    version: "9.0.101",
+                                    includePrerelease: true)
 
-                Jobs = new Jobs
-                {
-                    Build = new BuildJob
-                    {
-                        RunsOn = BuildMachines.Windows2019,
+                                .AddRestoreStep()
+                                .AddBuildStep()
+                                .AddTestStep())
 
-                        Steps = new List<GithubTask>
-                        {
-                            new CheckoutTaskV2
-                            {
-                                Name = "Check Out"
-                            },
-
-                            new SetupDotNetTaskV1
-                            {
-                                Name = "Setup .Net",
-
-                                TargetDotNetVersion = new TargetDotNetVersion
-                                {
-                                    DotNetVersion = "9.0.203",
-                                    IncludePrerelease = true
-                                }
-                            },
-
-                            new RestoreTask
-                            {
-                                Name = "Restore"
-                            },
-
-                            new DotNetBuildTask
-                            {
-                                Name = "Build"
-                            },
-
-                            new TestTask
-                            {
-                                Name = "Test"
-                            }
-                        }
-                    }
-                }
-            };
-
-            adotNetClient.SerializeAndWriteToFile(githubPipeline, "../../../../.github/workflows/dotnet.yml");
+                .SaveToFile(buildScriptPath);
         }
     }
 }
