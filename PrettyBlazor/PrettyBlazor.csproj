@@ -17,10 +17,15 @@
     <FileVersion>1.4.0</FileVersion>
     <Version>1.4.0</Version>
     <PackageReleaseNotes>Added FixedIterations Component</PackageReleaseNotes>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="License.txt" />
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="License.txt">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
